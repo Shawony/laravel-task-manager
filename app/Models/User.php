@@ -17,6 +17,7 @@ class User extends Authenticatable
         return $this->hasMany(Task::class);
     }
 
+
     /**
      * The attributes that are mass assignable.
      *

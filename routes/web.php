@@ -1,11 +1,25 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+// Registration Routes
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+// Login Routes
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+// Logout Route
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+Route::get('/',[TaskController::class,'index'])->name('tasks.index')->middleware('auth');
 Route::get('/tasks',[TaskController::class,'index'])->name('tasks.index')->middleware('auth');
 Route::get('/tasks/create',[TaskController::class,'create'])->name('tasks.create')->middleware('auth');
 Route::post('/tasks',[TaskController::class,'store'])->name('tasks.store')->middleware('auth');
