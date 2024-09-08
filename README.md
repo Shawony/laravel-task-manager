@@ -24,9 +24,9 @@ Follow these steps to set up the application locally:
 1. **Clone the Repository**
 
    ```bash
-   
+
    git clone https://github.com/Shawony/laravel-task-manager
-   cd laravel-todo-app
+   cd laravel-task-manager
 
    composer install
    
